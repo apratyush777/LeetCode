@@ -1,32 +1,22 @@
-def bs(l, r, nums, target):  # binary search function
-    while l <= r:
-        mid = (l+r)//2
-        if nums[mid] < target:
-            l = mid+1
-        elif nums[mid] > target:
-            r = mid-1
-        else:
-            return mid
-    return -1
-
-
 class Solution:
-
     def search(self, nums: List[int], target: int) -> int:
-        if len(nums) == 1:
-            if target == nums[0]:
-                return 0
-            return -1
-        else:
-            b = 0
-            for i in range(len(nums)-1):
-                if nums[i] > nums[i+1]:
-                    b = i
-                    break
-             # calling binary search function
-            call1 = bs(0, b, nums, target)
-            if call1 != -1:
-                return call1
+        l,r=0,len(nums)-1
+        while l<=r:
+            mid = (l+r)//2
+            if nums[mid]==target:
+                return mid
+            
+            #check which part of array is sorted
+            if nums[l]<=nums[mid]:
+                if target>=nums[l] and target<nums[mid]:
+                    r=mid-1
+                else:
+                    l=mid+1
             else:
-                call2 = bs(b+1, len(nums)-1, nums, target)
-                return call2
+                if target>nums[mid] and target<=nums[r]:
+                    l=mid+1
+                else:
+                    r=mid-1
+                    
+        return -1
+        
