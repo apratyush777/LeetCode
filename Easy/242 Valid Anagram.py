@@ -17,4 +17,3 @@ class Solution:
     
 #This solution is O(n) and space is also O(n) 
 #if we use sorting then space complexity is O(1) and time complexity is O(logN)
-#
