@@ -10,4 +10,3 @@ class Solution:
                 l += 1
             r += 1
 #using a for loop instead of a while loop would be little faster so use that.............................
-#
