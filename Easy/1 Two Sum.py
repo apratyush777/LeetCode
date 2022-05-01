@@ -13,3 +13,5 @@ class Solution:
                 dic[i] = nums[i]
             else:
                 return [i, getkey(dic, target-nums[i])]
+            
+            #
