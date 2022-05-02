@@ -14,4 +14,4 @@ class Solution:
             else:
                 return [i, getkey(dic, target-nums[i])]
             
-            #
+            
