@@ -1,3 +1,4 @@
+#first method (naive)
 def fun(s):
     summ=0
     for i in s:
@@ -13,3 +14,13 @@ class Solution:
             s=temp
         return s
             
+        
+#2nd method (using digital root method )
+class Solution:
+    def addDigits(self, num: int) -> int:
+        ans = num%9
+        if ans!=0:
+            return ans
+        elif num==0:
+            return 0
+        return 9
