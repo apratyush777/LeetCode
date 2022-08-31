@@ -4,14 +4,21 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
-def helper(root,arr):
-    if root:
-        helper(root.left,arr)
-        arr.append(root.val)
-        helper(root.right,arr)
-        
 class Solution:
     def kthSmallest(self, root: Optional[TreeNode], k: int) -> int:
-        arr=[]
-        helper(root,arr)
-        return arr[k-1]
+        self.cnt=0
+        self.ans=0
+        
+        def helper(root):
+            if root:
+                helper(root.left)
+                self.cnt+=1
+                if self.cnt==k:
+                    self.ans=root.val
+                    
+                    #return root.val
+                helper(root.right)
+            return self.ans
+                
+        ans=helper(root)
+        return ans
